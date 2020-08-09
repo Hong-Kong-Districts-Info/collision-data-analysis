@@ -21,10 +21,10 @@ The analysis is implemented in R.
 
 ## Repo Structure
 
-
-|   .gitattributes
-|   .gitignore
-|   .Rhistory
+```
+|   .gitattributes 
+|   .gitignore 
+|   .Rhistory 
 |   collision-data-analysis.Rproj
 |   README.md
 |   
@@ -45,4 +45,6 @@ The analysis is implemented in R.
             collision-number-of-vehicles-by-dc.R
             initital exploration.R
             leaflet exploration.R
+            
+```
 
