@@ -26,17 +26,23 @@ df_accident_new <- cbind(df_accident, latlong)
 df_accident_new %>%
   drop_na(latitude, longitude) %>%
   filter(Year == 2019) %>%
-  slice(1:100) %>%
-  mutate(Info = paste("Severity:", Severity, "\n",
-                      "District:", District_Council_District, "\n",
+  # slice(1:100) %>%
+  mutate(Info = paste("Severity:", Severity, "<br/>",
+                      "District:", District_Council_District, "<br/>",
                       "Vehicles involved:", No__of_Vehicles_Involved)) %>%
   leaflet() %>%
   # addTiles() %>%
   addProviderTiles(providers$Stamen.Toner) %>%
-  addCircleMarkers(lng = ~longitude,
-                   lat = ~latitude,
-                   popup = ~as.character(Info),
-                   label = ~as.character(Info))
+  # addProviderTiles(providers$CartoDB.Positron) %>%
+  # addCircleMarkers(lng = ~longitude,
+  #                  lat = ~latitude,
+  #                  popup = ~Info)
+  addMarkers(
+    lng = ~longitude,
+    lat = ~latitude,
+    popup = ~Info,
+    clusterOptions = markerClusterOptions()
+    )
   # addMarkers(lng = ~longitude,
   #            lat = ~latitude,
   #            popup = ~as.character(Info),
