@@ -122,9 +122,9 @@ server <- function(input, output, session) {
       leaflet() %>% 
       setView( 114.1303, 22.3669, zoom = 11) %>% 
       addTiles() %>% 
-      addCircleMarkers(
-        popup = ~ Summary, radius = ~ sqrt(No__of_Casualties_Injured)*3,
-        fillColor = 'red', color = 'red', weight = 1
+      addMarkers(
+        popup = ~ Summary,
+        clusterOptions = markerClusterOptions()
       ) %>%
       addProviderTiles(providers$CartoDB.Positron)
   })
