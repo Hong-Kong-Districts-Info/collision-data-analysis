@@ -9,7 +9,6 @@ library(HK80) # https://cran.r-project.org/web/packages/HK80/HK80.pdf
 library(leaflet)
 library(shiny)
 library(shinythemes)
-library(shinyWidgets)
 
 # Load data ---------------------------------------------------------------
 source(here("script", "read in data.R"))
